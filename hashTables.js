@@ -44,6 +44,7 @@ class HashTable {
         if(currentBucket){
             for (let index = 0; index < currentBucket.length; index++) {
                 if(currentBucket[index][0] === key){
+                  console.log(currentBucket[index][1]);
                     return currentBucket[index][1]
                 }                
             }
@@ -52,15 +53,32 @@ class HashTable {
     }
 
     delete(key){
-      
+      const address = this.hashMethod(key);
+      const currentBucket = this.data[address];
+
+      if (currentBucket) {
+          const indexToRemove = currentBucket.findIndex(item => item[0] === key);
+          if (indexToRemove !== -1) {
+              const deleteItem = currentBucket[indexToRemove];
+              currentBucket.splice(indexToRemove, 1);
+              return deleteItem
+          }
+          return undefined
+      }
     }
+
+    getAllKeys(){
+
+    }
+
+    // Create a method to get the address
 }
 
 const myHashTable = new HashTable(50);
 myHashTable.set("Diego",1990)
 myHashTable.set("Camilo",1920)
-myHashTable.set("Angelica",2000)
-myHashTable.get("Angelica")
-
-const map = new Map()
-const weak = new WeakMap
+//myHashTable.set("Angelica",2000)
+//myHashTable.get("Angelica")
+console.log(myHashTable);
+console.log(myHashTable.delete("Esteban"));
+console.log(myHashTable);
