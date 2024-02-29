@@ -68,7 +68,17 @@ class HashTable {
     }
 
     getAllKeys(){
+      const keys = [];
 
+      for (let address = 0; address < this.data.length; address++) {
+        if(this.data[address] !== undefined){         
+          for (let element = 0; element < this.data[address].length; element++) {  
+            const key =  this.data[address][element][0];
+            keys.push(key);
+          }
+        }
+      }
+      return keys
     }
 
     // Create a method to get the address
@@ -80,5 +90,5 @@ myHashTable.set("Camilo",1920)
 //myHashTable.set("Angelica",2000)
 //myHashTable.get("Angelica")
 console.log(myHashTable);
-console.log(myHashTable.delete("Esteban"));
-console.log(myHashTable);
+//console.log(myHashTable.delete("Esteban"));
+console.log(myHashTable.getAllKeys());
