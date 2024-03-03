@@ -81,6 +81,10 @@ class HashTable {
       return keys
     }
 
+    getAllKeys2() {
+      return this.data.flatMap((array) => array.map(pair => pair[0]));
+    }
+
     // Create a method to get the address
 }
 
@@ -91,4 +95,5 @@ myHashTable.set("Camilo",1920)
 //myHashTable.get("Angelica")
 console.log(myHashTable);
 //console.log(myHashTable.delete("Esteban"));
-console.log(myHashTable.getAllKeys());
+//console.log(myHashTable.getAllKeys());
+console.log(myHashTable.getAllKeys2());
