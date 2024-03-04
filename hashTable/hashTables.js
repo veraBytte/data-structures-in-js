@@ -97,3 +97,6 @@ console.log(myHashTable);
 //console.log(myHashTable.delete("Esteban"));
 //console.log(myHashTable.getAllKeys());
 console.log(myHashTable.getAllKeys2());
+
+// llave1 | 001x2 | 'casa'
+// llave2 | 001x3 | 'armario' 

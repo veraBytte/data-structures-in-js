@@ -1,21 +1,3 @@
-// 1 -> 2 -> 3 -> 4 -> 5 -> null
-
-// let singleLinkedList = {
-//     head : {
-//         value: 1,
-//         next : {
-//             value : 2,
-//             next : {
-//                 value :3 ,
-//                 next: {
-//                     value:4,
-//                     next:null
-//                 }
-//             }
-//         }
-//     }
-// }
-
 class Node {
     constructor(value){
         this.value = value
@@ -23,7 +5,7 @@ class Node {
     }
 }
 
-class mySinglyLinkedList {
+class SinglyLinkedList {
     constructor(value){
         this.head = {
             value : value,
@@ -71,9 +53,30 @@ class mySinglyLinkedList {
         return 'Agregado' + node;
     }
 
-    remove(index){
-        
-    }
+    remove(index) {
+        if (index < 0 || index >= this.length) {
+          return `El indice no existe actualmente el indice mayor es ${this.length}`;
+        }
+
+        let nodeRemoved = undefined
+      
+        if (index === 0) {
+            nodeRemoved = this.head.value;
+            this.head = this.head.next;
+        }else {
+            const pointer = this.getIndex(index - 1);
+            const nodeToRemove = pointer.next;
+            nodeRemoved = this.head.value;
+            
+            if (index === this.length - 1) {
+                this.tail = pointer;
+            }
+
+            pointer.next = nodeToRemove.next;
+        }
+        this.length--;
+        return nodeRemoved;
+      }
 
     getIndex(index){
         let counter = 0;
@@ -83,15 +86,27 @@ class mySinglyLinkedList {
             currentNode = currentNode.next;
             counter++
         }
-
         return currentNode;
     }
 }
 
-const myLinkedList = new mySinglyLinkedList("Valor1");
-console.log(myLinkedList.append("Valor2"));
-console.log(myLinkedList.append("Valor3"));
-console.log(myLinkedList.append("Valor4"));
-console.log(myLinkedList.prepend("Valor0"));
-console.log(myLinkedList);
-console.log(myLinkedList.insert(2,"Valor agregado"));
+
+// console.log(myLinkedList.insert(2,"Valor agregado"));
+
+// 1 -> 2 -> 3 -> 4 -> 5 -> null
+
+// let singleLinkedList = {
+//     head : {
+//         value: 1,
+//         next : {
+//             value : 2,
+//             next : {
+//                 value :3 ,
+//                 next: {
+//                     value:4,
+//                     next:null
+//                 }
+//             }
+//         }
+//     }
+// }
