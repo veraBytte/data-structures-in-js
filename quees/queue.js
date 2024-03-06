@@ -19,10 +19,10 @@ class Queue {
     /**
      * Create a new Queue.
      */
+    #length = 0
     constructor() {
         this.first = null;
         this.last = null;
-        this.length = 0;
     }
 
     /**
@@ -30,9 +30,11 @@ class Queue {
      * @param {any} value - The value to add to the queue.
      */
     enqueue(value){
+        if (value === undefined) throw new Error ('You must provide a value to enqueue.')
+
         const node = new Node(value);
     
-        if(this.length === 0){
+        if(this.isEmpty()){
             this.first = node;
             this.last = node;
         }else{
@@ -40,7 +42,7 @@ class Queue {
             this.last = node;
         }
 
-        this.length++;
+        this.#length++;
     }
 
     /**
@@ -48,13 +50,12 @@ class Queue {
      * @return {any} The value of the removed node.
      */
     dequeue(){
-        if (!this.first) {
-            return null;
-        }
+        if (this.isEmpty()) throw new Error('You cannot dequeue from an empty queue.') 
+            
 
         const value = this.peek();
         this.first = this.first.next;
-        this.length--;
+        this.#length--;
     
         return value;
     }
@@ -64,11 +65,32 @@ class Queue {
      * @return {any} The value of the first node.
      */
     peek(){
-        if (!this.first) {
-            return null;
-        }
-        return this.first.value;
+        return (this.isEmpty()) ? true : null;
+    }
+
+    /**
+     * Check if the queue is empty.
+     * @returns {boolean} True if the queue is empty or false isn't
+     */
+    isEmpty(){
+        return this.#length === 0;
+    }
+
+    /**
+     * Get the total number elements in the Queue.
+     * @returns {number} 
+     */
+    size() {
+        return this.#length;
+    }
+
+
+    clear() {
+        this.first = null;
+        this.last = null;
+        this.#length = 0;
     }
 }
 
-// last - value - value - first
+// Structure
+// last - value - value - first (FIFO)
