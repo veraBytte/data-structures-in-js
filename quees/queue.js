@@ -1,16 +1,4 @@
-/**
- * Node class for queue implementation.
- */
-class Node{
-    /**
-     * Create a new Node.
-     * @param {any} value - The value of the node.
-     */
-    constructor(value){
-        this.value = value;
-        this.next = null;
-    }
-}
+import { Node } from "../Node.js";
 
 /**
  * Queue class implemented with a singly linked list.

@@ -1,25 +1,16 @@
-class Node {
-    /**
-     * 
-     * @param {any} value 
-     */
-    constructor(value){
-        this.value = value;
-        this.next = null;
-    }
-}
+import { Node } from "../Node.js";
 
 /**
  * Stack class implemented with a singly linked list.
  */
 class Stack {
+    #length = 0;
     /**
      * Create a new Stack
      */
     constructor(){
         this.top = null;
         this.bottom = null;
-        this.length = 0;
     }
 
     /**
@@ -42,7 +33,7 @@ class Stack {
     push(value){
         const node = new Node(value);
 
-        if (this.length === 0) {
+        if (this.#length === 0) {
             this.top = node;
             this.bottom = node;
         } else{
@@ -50,7 +41,7 @@ class Stack {
             this.top = node;
             this.top.next = holdingPointer;
         }
-        this.length++;
+        this.#length++;
         return this.top
     }
 
@@ -65,7 +56,7 @@ class Stack {
 
         const removedTop = this.top;
         this.top = this.top.next;
-        this.length--;
+        this.#length--;
 
         if (this.isEmpty()) {
             this.bottom = null;
@@ -78,7 +69,7 @@ class Stack {
      * @return {boolean} True if the stack is empty, false otherwise.
      */
     isEmpty(){
-        return this.length === 0
+        return this.#length === 0
     }
 
     /**
@@ -88,10 +79,12 @@ class Stack {
     reset() {
         this.top = null;
         this.bottom = null;
-        this.length = 0;
-        return this.length === 0
+        this.#length = 0;
+        return this.#length === 0
     }
 }
+
+// Structure
 
 // | Top  |
 // | next |
