@@ -1,11 +1,13 @@
-class Node {
-    constructor(value){
-        this.value = value
-        this.next = null
-    }
-}
+import { Node } from "../Node.js";
 
+/**
+ * Class representing a singly linked list.
+ */
 class SinglyLinkedList {
+     /**
+     * Create a singly linked list.
+     * @param {any} value - The value of the first node.
+     */
     constructor(value){
         this.head = {
             value : value,
@@ -16,6 +18,11 @@ class SinglyLinkedList {
         this.length = 1
     }
 
+    /**
+     * Add a new item to the end of the list.
+     * @param {any} value - The value to add to the list.
+     * @returns {SinglyLinkedList} The list.
+     */
     append(value){
         const node = new Node(value);
         this.tail.next = node;
@@ -25,10 +32,11 @@ class SinglyLinkedList {
         return this
     }
 
-    insert(value){
-        this.head.next = new Node (value)
-    }
-
+    /**
+     * Add a new item to the beginning of the list.
+     * @param {any} value - The value to add to the list.
+     * @returns {SinglyLinkedList} The list.
+     */
     prepend(value){
         const node = new Node(value)
         node.next = this.head;
@@ -37,6 +45,11 @@ class SinglyLinkedList {
         return this
     }
 
+     /**
+     * Insert a new item at a specific index in the list.
+     * @param {number} index - The index at which to insert the new item.
+     * @param {any} value - The value to insert into the list.
+     */
     insert(index, value){
         if(index >= this.length){
             return this.append(value)
@@ -53,6 +66,11 @@ class SinglyLinkedList {
         return 'Agregado' + node;
     }
 
+    /**
+     * Remove an item at a specific index from the list.
+     * @param {number} index - The index at which to remove the item.
+     * @returns {any} The value of the removed node.
+     */
     remove(index) {
         if (index < 0 || index >= this.length) {
           return `El indice no existe actualmente el indice mayor es ${this.length}`;
@@ -78,6 +96,11 @@ class SinglyLinkedList {
         return nodeRemoved;
       }
 
+        /**
+     * Get the node at a specific index in the list.
+     * @param {number} index - The index of the node to get.
+     * @returns {Node} The node at the specified index.
+     */
     getIndex(index){
         let counter = 0;
         let currentNode = this.head;
