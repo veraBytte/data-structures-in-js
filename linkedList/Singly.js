@@ -1,9 +1,9 @@
-import { Node } from "../Node.js";
+import { Node } from "../node/Node.js";
 
 /**
  * Class representing a singly linked list.
  */
-class SinglyLinkedList {
+export class SinglyLinkedList {
      /**
      * Create a singly linked list.
      * @param {any} value - The value of the first node.

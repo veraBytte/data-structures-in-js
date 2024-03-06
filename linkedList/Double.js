@@ -6,7 +6,7 @@ class Node {
     }
 }
 
-class DoubleLinkedList {
+export class DoubleLinkedList {
     constructor(value){
         this.head = {
             value : value,

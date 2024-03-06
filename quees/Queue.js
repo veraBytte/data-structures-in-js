@@ -1,9 +1,9 @@
-import { Node } from "../Node.js";
+import { Node } from "../node/Node.js";
 
 /**
  * Queue class implemented with a singly linked list.
  */
-class Queue {
+export class Queue {
     /**
      * Create a new Queue.
      */

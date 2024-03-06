@@ -22,7 +22,7 @@ class Node{
 /**
  * Binary Search Tree class.
  */
-class BynarySearchTree{
+export class BynarySearchTree{
 
     /**
      * Create a new Binary Search Tree.

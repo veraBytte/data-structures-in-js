@@ -3,7 +3,7 @@ import { Node } from "../Node.js";
 /**
  * Stack class implemented with a singly linked list.
  */
-class Stack {
+export class Stack {
     #length = 0;
     /**
      * Create a new Stack

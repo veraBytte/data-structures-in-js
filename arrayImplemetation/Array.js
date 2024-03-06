@@ -1,6 +1,6 @@
-const array = ["Diego","Carmen","Jorge"] // Array Dinamico
+// const array = ["Diego","Carmen","Jorge"] Array Dinamico
 
-class MyArray {
+export class ArrayImpl {
     constructor() {
         this.length = 0;
         this.data = {}
